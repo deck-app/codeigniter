@@ -10,7 +10,7 @@ RUN apt-get install --no-install-recommends -y libpq-dev
 RUN apt-get install -y libxml2-dev libbz2-dev zlib1g-dev
 RUN apt-get -y install libsqlite3-dev libsqlite3-0 mariadb-client curl exif ftp
 RUN docker-php-ext-install intl
-RUN apt-get -y install --fix-missing zip unzip
+RUN apt-get -y install --fix-missing zip unzip git
 
 # Composer
 RUN curl -sS https://getcomposer.org/installer | php
