@@ -10,23 +10,15 @@ services:
     volumes:
       - "${APP_CODE_PATH_HOST}:/var/www/html"
   mysql:
-    build:
-      context: "./mysql"
-      args:
-        - "MYSQL_VERSION=${MYSQL_VERSION}"
+    image: "deckapp/mysql:v${MYSQL_VERSION}"
     environment:
       - "MYSQL_DATABASE=${MYSQL_DATABASE}"
       - "MYSQL_USER=${MYSQL_USER}"
       - "MYSQL_PASSWORD=${MYSQL_PASSWORD}"
       - "MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}"
-      - "TZ=${WORKSPACE_TIMEZONE}"
     volumes:
       - "${DATA_PATH_HOST}/mysql:/var/lib/mysql"
-      - "${MYSQL_ENTRYPOINT_INITDB}:/docker-entrypoint-initdb.d"
+      - "${MYSQL_PATH}:/etc/mysql/"
     ports:
       - "${MYSQL_PORT}:3306"
-volumes:
-  codeigniter:
-    driver: "${VOLUMES_DRIVER}"
-  mysql:
-    driver: "${VOLUMES_DRIVER}"
+
