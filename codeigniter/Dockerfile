@@ -1,6 +1,6 @@
 FROM php:7.4-apache
 
-LABEL maintainer="Naba Das <nabad600@gmail.com>"
+LABEL MAINTAINER Naba Das <hello@get-deck.com>
 
 RUN apt-get update
 RUN apt-get upgrade -y
