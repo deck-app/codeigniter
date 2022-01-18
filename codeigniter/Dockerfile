@@ -1,4 +1,4 @@
-FROM --platform=linux/x86_64 php:7.4-apache
+FROM php:7.4-apache
 
 LABEL MAINTAINER Naba Das <hello@get-deck.com>
 
