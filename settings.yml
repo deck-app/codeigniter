@@ -1,53 +1,87 @@
 #User defined
 user:
-  # php_version:
-  #   label:
-  #     PHP version
-  #   hint:
-  #     Select a PHP version from the list above
-  #   type:
-  #     select
-  #   values:
-  #     - 5.6
-  #     - 5.7
-  #     - 7.2
-  #     - 8.1
-  #   target:
-  #     PHP_VERSION
-
-  # install_xdebug:
-  #   label:
-  #     Install XDEBUG?
-  #   type:
-  #     checkbox
-  #   hint:
-  #     Check to enable XDEBUG installation
-  #   target:
-  #     INSTALL_XDEBUG
-  # mysql_version:
-  #   label:
-  #     MySQL version
-  #   hint:
-  #     Select MySQL version
-  #   type:
-  #     select
-  #   values:
-  #     - "5.0"
-  #     - "7.0"
-  #   target:
-  #     MYSQL_VERSION
-
+  back_end:
+    label:
+      Backend
+    hint:
+      Select a backend from the list above
+    type:
+      select
+    values:
+      - apache
+      - nginx
+    target:
+      BACK_END
+  php_version:
+    label:
+      PHP version
+    hint:
+      Select a PHP version from the list above
+    type:
+      select
+    values:
+      - 7.4
+      - "8.0"
+    target:
+      PHP_VERSION
+  
+  backend_ws:
+      disabled_post_install: true
+      label:
+        Wordpress Version
+      hint:
+        Select a Wordpress version
+      type:
+        select
+      values:
+        - "5.9.2"
+        - "5.8.4"
+        - "5.7.6"
+        - "5.6.8"
+      target:
+        WP_VERSION
+  wp_debug:
+    label:
+      Enable WordPress debug mode?
+    type:
+      checkbox
+    hint:
+      Check to enable WordPress debug mode
+    target:
+      WORDPRESS_DEBUG
+  php_xdebug:
+    label:
+      Enable PHP extension XDEBUG?
+    type:
+      checkbox
+    hint: Check the box to display extension xdebug
+    target:
+      XDEBUG
+  MariaDB_version:
+    label:
+      MariaDB version
+    hint:
+      Select a MariaDB version from the list above
+    type:
+      select
+    values:
+      - latest
+      - 10.7
+      - 10.6
+      - 10.5
+    target:
+      MARIADB_VERSION
   # customize_server_root_path:
   #   label:
   #     Server root
   #   type:
   #     input
   #   values:
-  #     /var/www/html
+  #     /var/www
   #   hint:
   #     Server document root
   #   target:
-  #     DOCUMENT_ROOT
+      # SERVER_ROOT
 
 #System defaults
 system:
@@ -61,5 +95,5 @@ system:
   ports:
     http:
       CODE_PORT
-    others:
+    other:
       - MYSQL_PORT
