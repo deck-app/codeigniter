@@ -24,31 +24,6 @@ user:
       - "8.0"
     target:
       PHP_VERSION
-  
-  backend_ws:
-      disabled_post_install: true
-      label:
-        Wordpress Version
-      hint:
-        Select a Wordpress version
-      type:
-        select
-      values:
-        - "5.9.2"
-        - "5.8.4"
-        - "5.7.6"
-        - "5.6.8"
-      target:
-        WP_VERSION
-  wp_debug:
-    label:
-      Enable WordPress debug mode?
-    type:
-      checkbox
-    hint:
-      Check to enable WordPress debug mode
-    target:
-      WORDPRESS_DEBUG
   php_xdebug:
     label:
       Enable PHP extension XDEBUG?
