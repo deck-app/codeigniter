@@ -20,29 +20,9 @@ if [[ "$(ls -A "/var/www/")" ]] ;
     else
         composer create-project codeigniter4/appstarter .
 fi
-
-if [[ {BACK_END} = nginx ]] ;
-then
-    cp /app/default.conf /etc/nginx/conf.d/default.conf
-else
-    cp /app/httpd.conf /etc/apache2/httpd.conf
-fi
-rm -rf /var/preview
-if [[ {USER_ID} -gt 0 ]] ;
-then
-    chown -R {USER_ID}:{GROUP_ID} /var/www
-else
-    chown -R nobody:nobody /var/www
-fi
-
-if [[ {BACK_END} = nginx ]]  ; 
-then
-    nginx -s reload
-else
-    httpd -k graceful
-fi
-
-# pkill -9 php
-# nginx -s reload
+cp /app/default.conf /etc/nginx/conf.d/default.conf
+sudo rm -rf /var/preview
+sudo chown -R nobody:nobody /var/www 2> /dev/null
+nginx -s reload
 
 exec "$@"
