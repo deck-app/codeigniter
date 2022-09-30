@@ -7,10 +7,10 @@ then
     if [[ -d "/var/www/vendor" ]] ;
     then
         echo "Steps to use Composer optimise autoloader"
-        composer update
+        sudo composer update
     else
         echo "If composer vendor folder is not installed follow the below steps"
-        composer install
+        sudo composer install
     fi
 
 fi
@@ -18,9 +18,9 @@ if [[ "$(ls -A "/var/www/")" ]] ;
     then
         echo "If the Directory is not empty, please delete the hidden files and directory"
     else
-        composer create-project codeigniter4/appstarter .
+        sudo composer create-project codeigniter4/appstarter .
 fi
-cp /app/default.conf /etc/nginx/conf.d/default.conf
+sudo cp /app/default.conf /etc/nginx/conf.d/default.conf
 sudo rm -rf /var/preview
 sudo chown -R nobody:nobody /var/www 2> /dev/null
 nginx -s reload
